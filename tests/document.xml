@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope xmlns="http://arbetsformedlingen.se/LedigtArbete" version="0.52">
+    <Sender id="123" email="jon@jon.se"/>
+    <TransactInfo timeStamp="2020-01-22T09:18:30">
+        <TransactId>456</TransactId>
+    </TransactInfo>
+    <Packet>
+        <PacketInfo>
+            <PacketId>1</PacketId>
+        </PacketInfo>
+        <Payload>
+            <JobPositionPosting status="active">
+                <JobPositionPostingId>123</JobPositionPostingId>
+                <HiringOrg>
+                    <HiringOrgName>Bemanna AB</HiringOrgName>
+                    <HiringOrgId>555555-5555</HiringOrgId>
+                    <Contact/>
+                </HiringOrg>
+                <PostDetail>
+                    <EndDate>
+                        <Date>2020-01-21</Date>
+                    </EndDate>
+                    <PostedBy>
+                        <Contact>
+                            <E-mail>jon@jon.se</E-mail>
+                        </Contact>
+                    </PostedBy>
+                </PostDetail>
+                <JobPositionInformation>
+                    <JobPositionTitle>Junior assistant vice president</JobPositionTitle>
+                    <JobPositionDescription>
+                        <JobPositionPurpose>Work work work</JobPositionPurpose>
+                        <JobPositionLocation>
+                            <PostalAddress>
+                                <CountryCode>SE</CountryCode>
+                                <PostalCode>71930</PostalCode>
+                                <Municipality>Vintrosa</Municipality>
+                                <DeliveryAddress>
+                                    <AddressLine>Street 1</AddressLine>
+                                    <PostOfficeBox>Street 1</PostOfficeBox>
+                                </DeliveryAddress>
+                            </PostalAddress>
+                            <LocationSummary>
+                                <Municipality>1880</Municipality>
+                                <CountryCode>SE</CountryCode>
+                            </LocationSummary>
+                        </JobPositionLocation>
+                        <Classification>
+                            <Schedule>
+                                <PartTime/>
+                                <SummaryText>Halvtid 50%</SummaryText>
+                            </Schedule>
+                            <Duration>
+                                <Temporary>
+                                    <TermLength>8</TermLength>
+                                </Temporary>
+                                <SummaryText>1 dagskneg</SummaryText>
+                            </Duration>
+                        </Classification>
+                        <CompensationDescription>
+                            <Pay>
+                                <SalaryMonthly currency="SEK">1</SalaryMonthly>
+                            </Pay>
+                            <SummaryText>Daglön</SummaryText>
+                        </CompensationDescription>
+                    </JobPositionDescription>
+                </JobPositionInformation>
+                <HowToApply>
+                    <ApplicationMethods>
+                        <ByEmail>
+                            <E-mail>jon@jon.se</E-mail>
+                        </ByEmail>
+                        <ByWeb>
+                            <URL>http://example.com</URL>
+                        </ByWeb>
+                    </ApplicationMethods>
+                </HowToApply>
+                <NumberToFill>1</NumberToFill>
+                <JPPExtension>
+                    <InformationContact>
+                        <Contact type="union">
+                            <PersonName>
+                                <GivenName>Jon</GivenName>
+                                <FamilyName>Gotlin</FamilyName>
+                            </PersonName>
+                            <PositionTitle>Facklig företrädare</PositionTitle>
+                            <VoiceNumber>
+                                <TelNumber>123</TelNumber>
+                            </VoiceNumber>
+                            <E-mail>jon@jon.se</E-mail>
+                        </Contact>
+                    </InformationContact>
+                    <OccupationGroup codename="123" code="456"/>
+                </JPPExtension>
+            </JobPositionPosting>
+        </Payload>
+    </Packet>
+</Envelope>
