@@ -90,7 +90,7 @@
                             <E-mail>jon@jon.se</E-mail>
                         </Contact>
                     </InformationContact>
-                    <OccupationGroup codename="123" code="456"/>
+                    <OccupationGroup codename="OccupationNameID" code="456"/>
                 </JPPExtension>
             </JobPositionPosting>
         </Payload>

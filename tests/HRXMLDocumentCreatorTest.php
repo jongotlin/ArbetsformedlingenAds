@@ -50,7 +50,6 @@ class HRXMLDocumentCreatorTest extends TestCase
             'Daglön',
             'http://example.com',
             'jon@jon.se',
-            '123',
             '456',
             [$contact]
         );
