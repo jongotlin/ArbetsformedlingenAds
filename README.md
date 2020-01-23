@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jongotlin/ArbetsformedlingenAds.svg?branch=master)](https://travis-ci.org/jongotlin/ArbetsformedlingenAds)
+
 # ArbetsformedlingenAds
 Api wrapper for publishing ads on Arbetsförmedlingen (Swedish public employment service)
 
