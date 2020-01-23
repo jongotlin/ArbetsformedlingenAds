@@ -152,7 +152,9 @@ class HRXMLDocumentCreator
                 $personName->appendChild($hrxml->createElement('GivenName', $contactModel->getFirstname()));
                 $personName->appendChild($hrxml->createElement('FamilyName', $contactModel->getLastname()));
                 $contact->appendChild($personName);
-                $contact->appendChild($hrxml->createElement('PositionTitle', $contactModel->getTitle()));
+                if ($contactModel->getTitle()) {
+                    $contact->appendChild($hrxml->createElement('PositionTitle', $contactModel->getTitle()));
+                }
                 if ($contactModel->getPhoneNumber()) {
                     $telNumber = $hrxml->createElement('TelNumber', $contactModel->getPhoneNumber());
                     $voiceNumber = $hrxml->createElement('VoiceNumber');
