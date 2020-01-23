@@ -129,11 +129,6 @@ class ArbetsformedlingenJob
     /**
      * @var string
      */
-    private $occupationGroupCodeName;
-
-    /**
-     * @var string
-     */
     private $occupationGroupCode;
 
     /**
@@ -164,7 +159,6 @@ class ArbetsformedlingenJob
      * @param string $salaryDescription
      * @param string|null $applyUrl
      * @param string|null $applyEmail
-     * @param string $occupationGroupCodeName
      * @param string $occupationGroupCode
      * @param Contact[] $contacts
      */
@@ -191,7 +185,6 @@ class ArbetsformedlingenJob
         string $salaryDescription,
         ?string $applyUrl,
         ?string $applyEmail,
-        string $occupationGroupCodeName,
         string $occupationGroupCode,
         array $contacts
     )
@@ -218,7 +211,6 @@ class ArbetsformedlingenJob
         $this->salaryDescription = $salaryDescription;
         $this->applyUrl = $applyUrl;
         $this->applyEmail = $applyEmail;
-        $this->occupationGroupCodeName = $occupationGroupCodeName;
         $this->occupationGroupCode = $occupationGroupCode;
         $this->contacts = $contacts;
     }
@@ -397,14 +389,6 @@ class ArbetsformedlingenJob
     public function getApplyEmail(): ?string
     {
         return $this->applyEmail;
-    }
-
-    /**
-     * @return string
-     */
-    public function getOccupationGroupCodeName(): string
-    {
-        return $this->occupationGroupCodeName;
     }
 
     /**

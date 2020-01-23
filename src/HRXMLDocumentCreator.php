@@ -169,7 +169,7 @@ class HRXMLDocumentCreator
             }
 
             $occupationGroup = $hrxml->createElement('OccupationGroup');
-            $occupationGroup->setAttributeNodeNS(new \DOMAttr('codename', $arbetsformedlingenJob->getOccupationGroupCodeName()));
+            $occupationGroup->setAttributeNodeNS(new \DOMAttr('codename', 'OccupationNameID'));
             $occupationGroup->setAttributeNodeNS(new \DOMAttr('code', $arbetsformedlingenJob->getOccupationGroupCode()));
             $jppExtension->appendChild($occupationGroup);
 
