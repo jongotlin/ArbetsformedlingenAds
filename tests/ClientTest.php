@@ -25,7 +25,7 @@ class ClientTest extends TestCase
         $client->setHttpClient($this->getHttpClient('{"Message":"Inskickade platsannonser har hanterats."}'));
         $client->setHrxmlDocumentCreator($this->createMock(HRXMLDocumentCreator::class));
         $result = $client->publish(
-            $this->createMock(Transaction::class),
+            $this->createMock(Transaction::class)
         );
 
         $this->assertInstanceOf(Result::class, $result);
@@ -41,7 +41,7 @@ class ClientTest extends TestCase
         $client->setHttpClient($this->getHttpClient('[{"Message":"Ett ogiltigt kundnummer har angivits.","ErrorCode":1005}]'));
         $client->setHrxmlDocumentCreator($this->createMock(HRXMLDocumentCreator::class));
         $result = $client->publish(
-            $this->createMock(Transaction::class),
+            $this->createMock(Transaction::class)
         );
 
         $this->assertInstanceOf(Result::class, $result);
