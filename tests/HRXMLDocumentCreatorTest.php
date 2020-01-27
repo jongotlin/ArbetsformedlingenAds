@@ -9,6 +9,7 @@ use JGI\ArbetsformedlingenAds\HRXMLDocument;
 use JGI\ArbetsformedlingenAds\HRXMLDocumentCreator;
 use JGI\ArbetsformedlingenAds\Model\ArbetsformedlingenJob;
 use JGI\ArbetsformedlingenAds\Model\Contact;
+use JGI\ArbetsformedlingenAds\Model\Qualification;
 use JGI\ArbetsformedlingenAds\Model\Transaction;
 use PHPUnit\Framework\TestCase;
 
@@ -26,6 +27,8 @@ class HRXMLDocumentCreatorTest extends TestCase
         $contact->setPhoneNumber('123');
         $contact->setTitle('Facklig företrädare');
         $contact->setUnionRepresentative(true);
+
+        $qualification = new Qualification(Qualification::TYPE_LICENSE, 'B', Qualification::EXPERIENCE_REQUIRED);
 
         $arbetsformedlingenJob = new ArbetsformedlingenJob(
             true,
@@ -51,7 +54,8 @@ class HRXMLDocumentCreatorTest extends TestCase
             'http://example.com',
             'jon@jon.se',
             '456',
-            [$contact]
+            [$contact],
+            [$qualification]
         );
 
         $transaction = new Transaction('123', 'jon@jon.se', '456', [$arbetsformedlingenJob]);

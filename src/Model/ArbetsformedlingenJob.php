@@ -77,7 +77,7 @@ class ArbetsformedlingenJob
     private $countryCode;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $municipalityCode;
 
@@ -137,6 +137,11 @@ class ArbetsformedlingenJob
     private $contacts;
 
     /**
+     * @var Qualification[]
+     */
+    private $qualifications;
+
+    /**
      * @param bool $active
      * @param string $postingId
      * @param string $organisationName
@@ -149,7 +154,7 @@ class ArbetsformedlingenJob
      * @param string $postalCode
      * @param string $city
      * @param string $countryCode
-     * @param string $municipalityCode
+     * @param string|null $municipalityCode
      * @param bool $fullTime
      * @param string $scheduleDescription
      * @param bool $indefinitePeriod
@@ -161,6 +166,7 @@ class ArbetsformedlingenJob
      * @param string|null $applyEmail
      * @param string $occupationGroupCode
      * @param Contact[] $contacts
+     * @param Qualification[] $qualifications
      */
     public function __construct(
         bool $active,
@@ -175,7 +181,7 @@ class ArbetsformedlingenJob
         string $postalCode,
         string $city,
         string $countryCode,
-        string $municipalityCode,
+        ?string $municipalityCode,
         bool $fullTime,
         string $scheduleDescription,
         bool $indefinitePeriod,
@@ -186,7 +192,8 @@ class ArbetsformedlingenJob
         ?string $applyUrl,
         ?string $applyEmail,
         string $occupationGroupCode,
-        array $contacts
+        array $contacts,
+        array $qualifications = []
     )
     {
         $this->active = $active;
@@ -213,6 +220,7 @@ class ArbetsformedlingenJob
         $this->applyEmail = $applyEmail;
         $this->occupationGroupCode = $occupationGroupCode;
         $this->contacts = $contacts;
+        $this->qualifications = $qualifications;
     }
 
     /**
@@ -312,9 +320,9 @@ class ArbetsformedlingenJob
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMunicipalityCode(): string
+    public function getMunicipalityCode(): ?string
     {
         return $this->municipalityCode;
     }
@@ -405,5 +413,13 @@ class ArbetsformedlingenJob
     public function getContacts(): array
     {
         return $this->contacts;
+    }
+
+    /**
+     * @return Qualification[]
+     */
+    public function getQualifications(): array
+    {
+        return $this->qualifications;
     }
 }

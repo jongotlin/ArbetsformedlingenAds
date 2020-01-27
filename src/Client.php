@@ -83,6 +83,14 @@ class Client
     }
 
     /**
+     * @return bool
+     */
+    public function isTestEnvironment(): bool
+    {
+        return $this->testEnvironment;
+    }
+
+    /**
      * @param null|EventDispatcherInterface $eventDispatcher
      */
     public function setEventDispatcher(?EventDispatcherInterface $eventDispatcher): void

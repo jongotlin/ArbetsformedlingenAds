@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace JGI\ArbetsformedlingenAds;
 
 use JGI\ArbetsformedlingenAds\Model\ArbetsformedlingenJob;
+use JGI\ArbetsformedlingenAds\Model\Qualification;
 use JGI\ArbetsformedlingenAds\Model\Transaction;
 
 class HRXMLDocumentCreator
@@ -51,7 +52,6 @@ class HRXMLDocumentCreator
             $hiringOrg = $hrxml->createElement('HiringOrg');
             $hiringOrg->appendChild($hrxml->createElement('HiringOrgName', $arbetsformedlingenJob->getOrganisationName()));
             $hiringOrg->appendChild($hrxml->createElement('HiringOrgId', $arbetsformedlingenJob->getOrganisationId()));
-            //$hiringOrg->appendChild($hrxml->createElement('WebSite', 'https://example.com'));
             $hiringOrg->appendChild($hrxml->createElement('Contact'));
             $jobPositionPosting->appendChild($hiringOrg);
 
@@ -73,9 +73,7 @@ class HRXMLDocumentCreator
             $jobPositionDescription->appendChild($hrxml->createElement('JobPositionPurpose', $arbetsformedlingenJob->getDescription()));
             $jobPositionLocation = $hrxml->createElement('JobPositionLocation');
             $postalAddress = $hrxml->createElement('PostalAddress');
-            //if ($arbetsformedlingenJob->getCountryCode() != 'SE') {
-                $postalAddress->appendChild($hrxml->createElement('CountryCode', $arbetsformedlingenJob->getCountryCode()));
-            //}
+            $postalAddress->appendChild($hrxml->createElement('CountryCode', $arbetsformedlingenJob->getCountryCode()));
             $postalAddress->appendChild($hrxml->createElement('PostalCode', $arbetsformedlingenJob->getPostalCode()));
             $postalAddress->appendChild($hrxml->createElement('Municipality', $arbetsformedlingenJob->getCity()));
             $deliveryAddress = $hrxml->createElement('DeliveryAddress');
@@ -85,7 +83,11 @@ class HRXMLDocumentCreator
             $jobPositionLocation->appendChild($postalAddress);
 
             $locationSummary = $hrxml->createElement('LocationSummary');
-            $locationSummary->appendChild($hrxml->createElement('Municipality', $arbetsformedlingenJob->getMunicipalityCode()));
+            if ($arbetsformedlingenJob->getCountryCode() == 'SE') {
+                $locationSummary->appendChild($hrxml->createElement('Municipality', $arbetsformedlingenJob->getMunicipalityCode()));
+            } else {
+                $locationSummary->appendChild($hrxml->createElement('Municipality', '9999'));
+            }
             $locationSummary->appendChild($hrxml->createElement('CountryCode', $arbetsformedlingenJob->getCountryCode()));
             $jobPositionLocation->appendChild($locationSummary);
 
@@ -112,6 +114,28 @@ class HRXMLDocumentCreator
             $classification->appendChild($duration);
             $jobPositionDescription->appendChild($classification);
             $jobPositionInformation->appendChild($jobPositionDescription);
+
+            $jobPositionRequirements = $hrxml->createElement('JobPositionRequirements');
+            foreach ($arbetsformedlingenJob->getQualifications() as $qualificationModel) {
+                $qualificationsRequired = $hrxml->createElement('QualificationsRequired');
+                $qualification = $hrxml->createElement('Qualification');
+                if ($qualificationModel->getType() == Qualification::TYPE_LICENSE) {
+                    $qualification->setAttributeNodeNS(new \DOMAttr('type', 'license'));
+                    $qualification->setAttributeNodeNS(new \DOMAttr('description', 'DriversLicense'));
+                } elseif ($qualificationModel->getType() == Qualification::TYPE_EQUIPMENT) {
+                    $qualification->setAttributeNodeNS(new \DOMAttr('type', 'equipment'));
+                    $qualification->setAttributeNodeNS(new \DOMAttr('description', 'Car'));
+                }
+                $qualification->setAttributeNodeNS(new \DOMAttr('category', $qualificationModel->getCategory()));
+                if ($qualificationModel->getExperience() == Qualification::EXPERIENCE_NOT_REQUIRED) {
+                    $qualification->setAttributeNodeNS(new \DOMAttr('yearsOfExperience', '1'));
+                } elseif ($qualificationModel->getExperience() == Qualification::EXPERIENCE_REQUIRED) {
+                    $qualification->setAttributeNodeNS(new \DOMAttr('yearsOfExperience', '4'));
+                }
+                $qualificationsRequired->appendChild($qualification);
+                $jobPositionRequirements->appendChild($qualificationsRequired);
+            }
+            $jobPositionInformation->appendChild($jobPositionRequirements);
 
             $compensationDescription = $hrxml->createElement('CompensationDescription');
             $pay = $hrxml->createElement('Pay');
