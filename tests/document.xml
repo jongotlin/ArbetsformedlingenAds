@@ -64,6 +64,11 @@
                             <SummaryText>Daglön</SummaryText>
                         </CompensationDescription>
                     </JobPositionDescription>
+                    <JobPositionRequirements>
+                        <QualificationsRequired>
+                            <Qualification category="B" description="DriversLicense" type="license" yearsOfExperience="4"/>
+                        </QualificationsRequired>
+                    </JobPositionRequirements>
                 </JobPositionInformation>
                 <HowToApply>
                     <ApplicationMethods>
