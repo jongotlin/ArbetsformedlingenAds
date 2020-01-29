@@ -38,7 +38,7 @@ class HRXMLDocumentCreatorTest extends TestCase
             new \DateTime('2020-01-21'),
             'jon@jon.se',
             'Junior assistant vice president',
-            'Work work work',
+            'Work work work <p>&aring;<p>',
             'Street 1',
             '71930',
             'Vintrosa',
