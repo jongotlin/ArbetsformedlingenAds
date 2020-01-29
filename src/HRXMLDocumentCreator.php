@@ -70,7 +70,9 @@ class HRXMLDocumentCreator
             $jobPositionInformation = $hrxml->createElement('JobPositionInformation');
             $jobPositionInformation->appendChild($hrxml->createElement('JobPositionTitle', $arbetsformedlingenJob->getTitle()));
             $jobPositionDescription = $hrxml->createElement('JobPositionDescription');
-            $jobPositionDescription->appendChild($hrxml->createElement('JobPositionPurpose', $arbetsformedlingenJob->getDescription()));
+            $jobPositionPurpose = $hrxml->createElement('JobPositionPurpose');
+            $jobPositionPurpose->appendChild($hrxml->createTextNode($arbetsformedlingenJob->getDescription()));
+            $jobPositionDescription->appendChild($jobPositionPurpose);
             $jobPositionLocation = $hrxml->createElement('JobPositionLocation');
             $postalAddress = $hrxml->createElement('PostalAddress');
             $postalAddress->appendChild($hrxml->createElement('CountryCode', 'SE')); // Must be Sweden
