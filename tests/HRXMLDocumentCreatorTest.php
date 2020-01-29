@@ -40,7 +40,7 @@ class HRXMLDocumentCreatorTest extends TestCase
             'Junior assistant vice president',
             'Work work work <p>&aring;<p>',
             'Street 1',
-            '71930',
+            '719 30',
             'Vintrosa',
             'SE',
             '1880',
