@@ -12,7 +12,7 @@
             <JobPositionPosting status="active">
                 <JobPositionPostingId>123</JobPositionPostingId>
                 <HiringOrg>
-                    <HiringOrgName>Bemanna AB</HiringOrgName>
+                    <HiringOrgName>Bemanna &amp; partners AB</HiringOrgName>
                     <HiringOrgId>555555-5555</HiringOrgId>
                     <Contact/>
                 </HiringOrg>
