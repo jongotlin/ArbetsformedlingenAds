@@ -33,7 +33,7 @@ class HRXMLDocumentCreatorTest extends TestCase
         $arbetsformedlingenJob = new ArbetsformedlingenJob(
             true,
             '123',
-            'Bemanna AB',
+            'Bemanna & partners AB',
             '555555-5555',
             new \DateTime('2020-01-21'),
             'jon@jon.se',

@@ -50,7 +50,10 @@ class HRXMLDocumentCreator
             $jobPositionPosting->appendChild($hrxml->createElement('JobPositionPostingId', $arbetsformedlingenJob->getPostingId()));
 
             $hiringOrg = $hrxml->createElement('HiringOrg');
-            $hiringOrg->appendChild($hrxml->createElement('HiringOrgName', $arbetsformedlingenJob->getOrganisationName()));
+            $hiringOrgName = $hrxml->createElement('HiringOrgName');
+            $hiringOrgName->appendChild($hrxml->createTextNode($arbetsformedlingenJob->getOrganisationName()));
+            $hiringOrg->appendChild($hiringOrgName);
+
             $hiringOrg->appendChild($hrxml->createElement('HiringOrgId', $arbetsformedlingenJob->getOrganisationId()));
             $hiringOrg->appendChild($hrxml->createElement('Contact'));
             $jobPositionPosting->appendChild($hiringOrg);
