@@ -160,7 +160,7 @@ class Client
      * @throws \Exception
      * @throws \Http\Client\Exception
      */
-    private function request(string $path, string $method = 'GET', array $parameters = [], $body)
+    private function request(string $path, string $method = 'GET', array $parameters = [], ?string $body = null)
     {
         $request = call_user_func_array(
             [$this, 'buildRequestInstance'],
