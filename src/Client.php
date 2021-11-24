@@ -202,7 +202,7 @@ class Client
 
         if ($this->eventDispatcher) {
             $this->eventDispatcher->dispatch(
-                ResultEvent::NAME, new ResultEvent($transaction, $result, $hrxml, $json)
+                new ResultEvent($transaction, $result, $hrxml, $json), ResultEvent::NAME
             );
         }
 
