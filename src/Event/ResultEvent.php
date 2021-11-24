@@ -7,7 +7,7 @@ namespace JGI\ArbetsformedlingenAds\Event;
 use JGI\ArbetsformedlingenAds\HRXMLDocument;
 use JGI\ArbetsformedlingenAds\Model\Result;
 use JGI\ArbetsformedlingenAds\Model\Transaction;
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class ResultEvent extends Event
 {
