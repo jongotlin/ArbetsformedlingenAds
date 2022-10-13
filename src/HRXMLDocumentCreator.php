@@ -127,11 +127,11 @@ class HRXMLDocumentCreator
                 if ($qualificationModel->getType() == Qualification::TYPE_LICENSE) {
                     $qualification->setAttributeNodeNS(new \DOMAttr('type', 'license'));
                     $qualification->setAttributeNodeNS(new \DOMAttr('description', 'DriversLicense'));
+                    $qualification->setAttributeNodeNS(new \DOMAttr('category', $qualificationModel->getCategory()));
                 } elseif ($qualificationModel->getType() == Qualification::TYPE_EQUIPMENT) {
                     $qualification->setAttributeNodeNS(new \DOMAttr('type', 'equipment'));
                     $qualification->setAttributeNodeNS(new \DOMAttr('description', 'Car'));
                 }
-                $qualification->setAttributeNodeNS(new \DOMAttr('category', $qualificationModel->getCategory()));
                 if ($qualificationModel->getExperience() == Qualification::EXPERIENCE_NOT_REQUIRED) {
                     $qualification->setAttributeNodeNS(new \DOMAttr('yearsOfExperience', '1'));
                 } elseif ($qualificationModel->getExperience() == Qualification::EXPERIENCE_REQUIRED) {
