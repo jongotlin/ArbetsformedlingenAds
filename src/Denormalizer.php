@@ -12,7 +12,7 @@ class Denormalizer
 {
     /**
      * @param array|null $data
-     * 
+     *
      * @return Result
      */
     public function denormalizeResult(?array $data): Result
@@ -20,13 +20,17 @@ class Denormalizer
         if ($data === null) {
             throw new InvalidJsonException();
         }
-        
+
         if (array_key_exists('Message', $data)) {
             return new Result();
         }
 
         $errors = [];
         foreach ($data as $row) {
+            if (is_string($row)) {
+                $errors[] = new Error($row);
+                continue;
+            }
             if (!array_key_exists('Message', $row)) {
                 throw new InvalidJsonException('Message key is missing');
             }
