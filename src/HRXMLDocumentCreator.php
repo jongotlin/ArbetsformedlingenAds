@@ -89,7 +89,7 @@ class HRXMLDocumentCreator
 
             $locationSummary = $hrxml->createElement('LocationSummary');
             if ($arbetsformedlingenJob->getCountryCode() == 'SE') {
-                $locationSummary->appendChild($hrxml->createElement('Municipality', $arbetsformedlingenJob->getMunicipalityCode() ?? '9090'));
+                $locationSummary->appendChild($hrxml->createElement('Municipality', $arbetsformedlingenJob->getMunicipalityCode() ?: '9090'));
             } else {
                 $locationSummary->appendChild($hrxml->createElement('Municipality', '9999'));
             }
