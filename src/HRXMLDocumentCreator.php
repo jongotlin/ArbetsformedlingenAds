@@ -121,8 +121,8 @@ class HRXMLDocumentCreator
             $jobPositionInformation->appendChild($jobPositionDescription);
 
             $jobPositionRequirements = $hrxml->createElement('JobPositionRequirements');
+            $qualificationsRequired = $hrxml->createElement('QualificationsRequired');
             foreach ($arbetsformedlingenJob->getQualifications() as $qualificationModel) {
-                $qualificationsRequired = $hrxml->createElement('QualificationsRequired');
                 $qualification = $hrxml->createElement('Qualification');
                 if ($qualificationModel->getType() == Qualification::TYPE_LICENSE) {
                     $qualification->setAttributeNodeNS(new \DOMAttr('type', 'license'));
@@ -138,8 +138,8 @@ class HRXMLDocumentCreator
                     $qualification->setAttributeNodeNS(new \DOMAttr('yearsOfExperience', '4'));
                 }
                 $qualificationsRequired->appendChild($qualification);
-                $jobPositionRequirements->appendChild($qualificationsRequired);
             }
+            $jobPositionRequirements->appendChild($qualificationsRequired);
             $jobPositionInformation->appendChild($jobPositionRequirements);
 
             $compensationDescription = $hrxml->createElement('CompensationDescription');
