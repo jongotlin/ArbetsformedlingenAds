@@ -4,16 +4,8 @@ declare(strict_types=1);
 
 namespace JGI\ArbetsformedlingenAds\Tests;
 
-use JGI\ArbetsformedlingenAds\Client;
 use JGI\ArbetsformedlingenAds\Denormalizer;
-use JGI\ArbetsformedlingenAds\HRXMLDocumentCreator;
-use JGI\ArbetsformedlingenAds\Model\ArbetsformedlingenJob;
-use JGI\ArbetsformedlingenAds\Model\Result;
-use JGI\ArbetsformedlingenAds\Model\Transaction;
 use PHPUnit\Framework\TestCase;
-use Http\Client\HttpClient;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
 
 class DenormalizerTest extends TestCase
 {
