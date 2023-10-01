@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace JGI\ArbetsformedlingenAds\Tests;
 
-use JGI\ArbetsformedlingenAds\Client;
 use JGI\ArbetsformedlingenAds\HRXMLDocument;
 use JGI\ArbetsformedlingenAds\HRXMLDocumentCreator;
 use JGI\ArbetsformedlingenAds\Model\ArbetsformedlingenJob;

@@ -89,7 +89,7 @@ class HRXMLDocumentCreator
 
             $locationSummary = $hrxml->createElement('LocationSummary');
             if ($arbetsformedlingenJob->getCountryCode() == 'SE') {
-                $locationSummary->appendChild($hrxml->createElement('Municipality', $arbetsformedlingenJob->getMunicipalityCode()));
+                $locationSummary->appendChild($hrxml->createElement('Municipality', $arbetsformedlingenJob->getMunicipalityCode() ?: '9090'));
             } else {
                 $locationSummary->appendChild($hrxml->createElement('Municipality', '9999'));
             }
@@ -121,25 +121,25 @@ class HRXMLDocumentCreator
             $jobPositionInformation->appendChild($jobPositionDescription);
 
             $jobPositionRequirements = $hrxml->createElement('JobPositionRequirements');
+            $qualificationsRequired = $hrxml->createElement('QualificationsRequired');
             foreach ($arbetsformedlingenJob->getQualifications() as $qualificationModel) {
-                $qualificationsRequired = $hrxml->createElement('QualificationsRequired');
                 $qualification = $hrxml->createElement('Qualification');
                 if ($qualificationModel->getType() == Qualification::TYPE_LICENSE) {
                     $qualification->setAttributeNodeNS(new \DOMAttr('type', 'license'));
                     $qualification->setAttributeNodeNS(new \DOMAttr('description', 'DriversLicense'));
+                    $qualification->setAttributeNodeNS(new \DOMAttr('category', $qualificationModel->getCategory()));
                 } elseif ($qualificationModel->getType() == Qualification::TYPE_EQUIPMENT) {
                     $qualification->setAttributeNodeNS(new \DOMAttr('type', 'equipment'));
                     $qualification->setAttributeNodeNS(new \DOMAttr('description', 'Car'));
                 }
-                $qualification->setAttributeNodeNS(new \DOMAttr('category', $qualificationModel->getCategory()));
                 if ($qualificationModel->getExperience() == Qualification::EXPERIENCE_NOT_REQUIRED) {
                     $qualification->setAttributeNodeNS(new \DOMAttr('yearsOfExperience', '1'));
                 } elseif ($qualificationModel->getExperience() == Qualification::EXPERIENCE_REQUIRED) {
                     $qualification->setAttributeNodeNS(new \DOMAttr('yearsOfExperience', '4'));
                 }
                 $qualificationsRequired->appendChild($qualification);
-                $jobPositionRequirements->appendChild($qualificationsRequired);
             }
+            $jobPositionRequirements->appendChild($qualificationsRequired);
             $jobPositionInformation->appendChild($jobPositionRequirements);
 
             $compensationDescription = $hrxml->createElement('CompensationDescription');
