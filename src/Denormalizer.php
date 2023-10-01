@@ -21,6 +21,10 @@ class Denormalizer
             throw new InvalidJsonException();
         }
 
+        if (array_key_exists('Message', $data) && $data['Message'] === 'Unauthorized') {
+            return new Result([new Error("Unauthorized")]);
+        }
+
         if (array_key_exists('Message', $data)) {
             return new Result();
         }
