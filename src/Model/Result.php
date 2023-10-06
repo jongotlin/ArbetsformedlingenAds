@@ -9,14 +9,26 @@ class Result
     /**
      * @var Error[]
      */
-    private $errors;
+    private $errors = [];
+
+    /**
+     * @var Response[]
+     */
+    private $response;
 
     /**
      * @param Error[] $errors
      */
-    public function __construct(iterable $errors = [])
+    public function __construct(iterable | null $errors = [], array | null $response = null)
     {
-        $this->errors = $errors;
+        if(!empty($errors))
+        {
+            $this->errors = $errors;
+        }
+        elseif(!empty($response))
+        {
+            $this->response = $response;
+        }
     }
 
     public function isSuccess(): bool
@@ -32,5 +44,11 @@ class Result
         return $this->errors;
     }
 
-
+    /**
+     * @return Response[]
+     */
+    public function getResponse(): array
+    {
+        return $this->response;
+    }
 }

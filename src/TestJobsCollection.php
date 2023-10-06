@@ -161,7 +161,7 @@ DESCRIPTION,
             $email,
             'Test job - 5',
             <<<DESCRIPTION
-Full time 
+Full time
 Temporary employment during the summer months (June to August)
 In any location in Sweden
 Fixed plus Comission
@@ -195,7 +195,7 @@ DESCRIPTION,
             $email,
             'Test job - 6',
             <<<DESCRIPTION
-Full time 
+Full time
 Temporary employment
 Unspecified workplace within Sweden
 Qualification yearsOfExperince 1 = experience not required
@@ -204,7 +204,7 @@ DESCRIPTION,
             '71930',
             'Vintrosa',
             'SE',
-            '1880',
+            '',
             true,
             'Heltid',
             false,
@@ -265,7 +265,7 @@ DESCRIPTION,
 Full time
 Temporary employment 6 months or longer
 In any location in Sweden
-Driver license, CE Occupation truck driver
+Driver license, CEOccupation truck driver
 Fixed plus Comission
 Qualification yearsOfExperince 4 = experience is requred
 DESCRIPTION,
