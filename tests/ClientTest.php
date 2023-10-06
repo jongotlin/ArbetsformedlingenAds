@@ -6,7 +6,6 @@ namespace JGI\ArbetsformedlingenAds\Tests;
 
 use JGI\ArbetsformedlingenAds\Client;
 use JGI\ArbetsformedlingenAds\HRXMLDocumentCreator;
-use JGI\ArbetsformedlingenAds\Model\ArbetsformedlingenJob;
 use JGI\ArbetsformedlingenAds\Model\Result;
 use JGI\ArbetsformedlingenAds\Model\Transaction;
 use PHPUnit\Framework\TestCase;
