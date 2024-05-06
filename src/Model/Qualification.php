@@ -33,7 +33,7 @@ class Qualification
      * @param string $category
      * @param string $experience
      */
-    public function __construct(string $type = "", string | null $category = null, string $experience)
+    public function __construct(string $type, string | null $category = null, string $experience = "")
     {
         $this->type = $type;
         $this->category = $category;
