@@ -8,6 +8,7 @@ class Qualification
 {
     const TYPE_LICENSE = 'license';
     const TYPE_EQUIPMENT = 'equipment';
+    const TYPE_EXPERIENCE = 'experience';
 
     const EXPERIENCE_NOT_REQUIRED = 'no_required';
     const EXPERIENCE_REQUIRED = 'required';
@@ -32,7 +33,7 @@ class Qualification
      * @param string $category
      * @param string $experience
      */
-    public function __construct(string $type, string $category, string $experience)
+    public function __construct(string $type = "", string | null $category = null, string $experience)
     {
         $this->type = $type;
         $this->category = $category;
@@ -50,7 +51,7 @@ class Qualification
     /**
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory(): string | null
     {
         return $this->category;
     }

@@ -283,9 +283,9 @@ DESCRIPTION,
             'Provisionslön',
             'http://example.com',
             $email,
-            '534', // Distributionsförare
+            '5687', // Truckförare
             [],
-            [new Qualification(Qualification::TYPE_LICENSE, 'CE', Qualification::EXPERIENCE_REQUIRED)]
+            [new Qualification(Qualification::TYPE_EXPERIENCE, null, Qualification::EXPERIENCE_REQUIRED)]
         );
 
         return [
@@ -296,7 +296,7 @@ DESCRIPTION,
             $arbetsformedlingenJob5,
             $arbetsformedlingenJob6,
             $arbetsformedlingenJob7,
-            $arbetsformedlingenJob8,
+            $arbetsformedlingenJob8
         ];
     }
 }

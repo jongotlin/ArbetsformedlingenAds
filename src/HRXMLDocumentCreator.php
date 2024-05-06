@@ -131,12 +131,11 @@ class HRXMLDocumentCreator
                 } elseif ($qualificationModel->getType() == Qualification::TYPE_EQUIPMENT) {
                     $qualification->setAttributeNodeNS(new \DOMAttr('type', 'equipment'));
                     $qualification->setAttributeNodeNS(new \DOMAttr('description', 'Car'));
-                }
-                if ($qualificationModel->getExperience() == Qualification::EXPERIENCE_NOT_REQUIRED) {
-                    $qualification->setAttributeNodeNS(new \DOMAttr('yearsOfExperience', '1'));
-                } elseif ($qualificationModel->getExperience() == Qualification::EXPERIENCE_REQUIRED) {
+                } elseif ($qualificationModel->getType() == Qualification::TYPE_EXPERIENCE) {
+                    $qualification->setAttributeNodeNS(new \DOMAttr('type', strtolower($qualificationModel->getType())));
                     $qualification->setAttributeNodeNS(new \DOMAttr('yearsOfExperience', '4'));
                 }
+
                 $qualificationsRequired->appendChild($qualification);
             }
             $jobPositionRequirements->appendChild($qualificationsRequired);
